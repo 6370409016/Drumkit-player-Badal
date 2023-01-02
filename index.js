@@ -15,7 +15,7 @@ for (var i = 0; i < numberOfDrums; i++) {
 
 }
 
-document.addEventListener("keydown",function(event){
+document.addEventListener("keydown",function(event){ // here we captured the key from user and reponse according that key
    makeSound(event.key);
 });
 
