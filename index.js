@@ -10,13 +10,14 @@ for (var i = 0; i < numberOfDrums; i++) {
     var buttonsInnerHtml = this.innerHTML; // here we store all the key included in buttons
                                            // here .this refers to the entire element of clicked button
   makeSound(buttonsInnerHtml);
-
+   buttonAnimation(buttonsInnerHtml);
   });
 
 }
 
 document.addEventListener("keydown",function(event){ // here we captured the key from user and reponse according that key
    makeSound(event.key);
+   buttonAnimation(event.key);
 });
 
 function makeSound(key){
@@ -53,4 +54,13 @@ function makeSound(key){
     alert("You clicked wrong key");
 
   }
+}
+
+function buttonAnimation(currentKey){  // here we choosed the key
+   var selectedKey=document.querySelector("."+currentKey); // here we just choosed entire button associate with that keydown
+   selectedKey.classList.add("pressed");        // here we just add pressed class to the current key
+
+   setTimeout(function(){         // here we setTimeout function to remove the pressed class after 100 milisecond
+     selectedKey.classList.remove("pressed");
+   }, 100);
 }
